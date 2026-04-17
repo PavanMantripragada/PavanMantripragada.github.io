@@ -1,5 +1,452 @@
 <!DOCTYPE html>
-<html>
-<head><title>Pavan</title></head>
-<body><h1>Pavan Mantripragada</h1></body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pavan Mantripragada</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-soft: #ffffff;
+      --card: #ffffff;
+      --text: #1e1f1b;
+      --muted: #5f6158;
+      --accent: #155e63;
+      --accent-soft: #d8ece8;
+      --line: rgba(30, 31, 27, 0.12);
+      --max-width: 1120px;
+      --serif: "Georgia", "Times New Roman", serif;
+      --sans: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--text);
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .site-shell {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .top-links {
+      display: flex;
+      gap: 1rem;
+      padding-top: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    main {
+      padding: 0 0 4rem;
+    }
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    .hero {
+      min-height: auto;
+      padding-top: 2rem;
+    }
+
+    .hero-copy {
+      max-width: 880px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--serif);
+      line-height: 1.15;
+    }
+
+    h1 {
+      margin-top: 0.5rem;
+      font-size: clamp(3rem, 6vw, 5.2rem);
+    }
+
+    .contact-block {
+      margin-top: 1.25rem;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    .position-block {
+      margin-top: 1.25rem;
+      color: var(--muted);
+    }
+
+    .about-copy {
+      margin-top: 1.4rem;
+      max-width: 72ch;
+      font-size: 1.05rem;
+    }
+
+    .profile-card {
+      float: right;
+      margin: 0.25rem 0 1rem 2rem;
+    }
+
+    .profile-card img {
+      width: 100%;
+      max-width: 170px;
+      aspect-ratio: 1 / 1.15;
+      object-fit: cover;
+      display: block;
+      filter: saturate(0.92) contrast(1.02);
+    }
+
+    .section-heading {
+      margin-bottom: 1.25rem;
+    }
+
+    .publication-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .publication-card {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      align-items: start;
+      border-top: 1px solid rgba(30, 31, 27, 0.12);
+    }
+
+    .publication-thumb {
+      width: 260px;
+      display: block;
+    }
+
+    .publication-thumb img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .publication-meta h3 {
+      font-size: 1.28rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .publication-authors {
+      margin: 0 0 0.6rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .publication-meta p {
+      margin: 0 0 0.75rem;
+      color: var(--muted);
+    }
+
+    .text-card-grid {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .text-card {
+      padding: 0;
+    }
+
+    .text-card p,
+    .text-card li {
+      color: var(--muted);
+    }
+
+    .text-card ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .footer-note {
+      padding: 0 0 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .publication-card,
+      .text-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .publication-thumb {
+        width: 260px;
+        max-width: 100%;
+      }
+
+      .profile-card {
+        float: none;
+        margin: 0 0 1rem;
+      }
+
+      .profile-card img {
+        max-width: 180px;
+      }
+
+      .hero {
+        padding-top: 1rem;
+      }
+
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-copy,
+      .profile-card,
+      .publication-card,
+      .text-card {
+        animation: fadeUp 700ms ease both;
+      }
+
+      .profile-card {
+        animation-delay: 120ms;
+      }
+
+      .publication-card:nth-child(2) {
+        animation-delay: 80ms;
+      }
+
+      .publication-card:nth-child(3) {
+        animation-delay: 140ms;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell top-links">
+    <a href="#about">About</a>
+    <!-- <a href="assets/Pavan_Mantripragada_CV.pdf">CV</a> -->
+    <a href="https://scholar.google.com/citations?user=0oLMm8kAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Scholar</a>
+  </div>
+
+  <main class="site-shell">
+    <section class="hero" id="about">
+      <div class="hero-copy">
+        <aside class="profile-card">
+          <img
+            src="assets/images/profile-photo.jpg"
+            alt="Pavan Mantripragada profile photo"
+          >
+        </aside>
+
+        <h1>Pavan Mantripragada</h1>
+        <div class="position-block">
+          <div>PhD Student, Perception and Robotics Group</div>
+          <div>Department of Computer Science</div>
+          <div>University of Maryland</div>
+        </div>
+        <div class="contact-block">
+          <div>mppavan@umd.edu</div>
+        </div>
+        <p class="about-copy">
+          I am a PhD student in Computer Science at the University of Maryland, College Park, 
+          working with the <a href="https://prg.cs.umd.edu/" target="_blank" rel="noreferrer">Perception and Robotics Group</a>, advised by <a href="https://scholar.google.com/citations?user=7QmEsOwAAAAJ&amp;hl=en" target="_blank" rel="noreferrer">Yiannis Aloimonos</a> and <a href="https://users.umiacs.umd.edu/~fermulcm/" target="_blank" rel="noreferrer">Cornelia Fermuller</a>.
+
+          My research focuses on multimodal representations of physical world for robotic manipulation and skill learning.
+        </p>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="section-heading">
+        <h2>Publications</h2>
+      </div>
+
+      <div class="publication-list">
+        <article class="publication-card">
+          <a class="publication-thumb" href="https://arxiv.org/abs/2603.15847" target="_blank" rel="noreferrer" aria-label="Open paper website for publication 1">
+            <img
+              src="assets/images/mosaic.png"
+              alt="Publication 1 thumbnail"
+            >
+          </a>
+          <div class="publication-meta">
+            <h3>FEEL (Force-Enhanced Egocentric Learning): A Dataset for Physical Action Understanding</h3>
+            <p class="publication-authors">Eadom Dessalene, Botao He, Michael Maynord, Yonatan Tussa, Pavan Mantripragada, Yianni Karabatis, Nirupam Roy, Yiannis Aloimonos</p>
+            <p>
+              FEEL is the first large-scale egocentric dataset pairing video with synchronized force measurements from custom piezoresistive gloves.
+              The dataset contains approximately 3 million force-synchronized frames of natural, unscripted kitchen manipulation and introduces
+              force as a physically grounded supervisory signal for contact understanding and action representation learning.
+            </p>
+            <a href="https://arxiv.org/abs/2603.15847" target="_blank" rel="noreferrer">Read paper</a>
+          </div>
+        </article>
+
+        <article class="publication-card">
+          <a class="publication-thumb" href="https://arxiv.org/abs/2602.12508" target="_blank" rel="noreferrer" aria-label="Open paper website for publication 2">
+            <img
+              src="assets/images/network_prediction.png"
+              alt="Publication 2 thumbnail"
+            >
+          </a>
+          <div class="publication-meta">
+            <h3>Monocular Reconstruction of Neural Tactile Fields</h3>
+            <p class="publication-authors">Pavan Mantripragada, Siddhanth Deshmukh, Eadom Dessalene, Manas Desai, Yiannis Aloimonos</p>
+            <p>
+              Robots must reason about how objects respond to contact, such as what can be pushed or deformed, yet this interaction
+              knowledge is missing from vision-based perception. To address this, we leverage real sensor data to predict a neural
+              representation of physical response directly from images. This enables real-to-sim transfer and supports robotics tasks
+              such as interaction-aware manipulation.
+            </p>
+            <a href="https://arxiv.org/abs/2602.12508" target="_blank" rel="noreferrer">Read paper</a>
+          </div>
+        </article>
+
+        <article class="publication-card">
+          <a class="publication-thumb" href="https://arxiv.org/abs/2510.03706" target="_blank" rel="noreferrer" aria-label="Open paper website for publication 3">
+            <img
+              src="assets/images/Figure_1_Architecture_23.png"
+              alt="Publication 3 thumbnail"
+            >
+          </a>
+          <div class="publication-meta">
+            <h3>EmbodiSwap for Zero-Shot Robot Imitation Learning</h3>
+            <p class="publication-authors">Eadom Dessalene*, Pavan Mantripragada*, Michael Maynord, Yiannis Aloimonos</p>
+            <p>
+              We introduce EmbodiSwap, a method for producing photorealistic synthetic robot overlays on human video. The approach
+              helps bridge the embodiment gap between in-the-wild egocentric human videos and a target robot embodiment, enabling
+              zero-shot imitation learning for robot manipulation.
+            </p>
+            <a href="https://arxiv.org/abs/2510.03706" target="_blank" rel="noreferrer">Read paper</a>
+          </div>
+        </article>
+
+        <article class="publication-card">
+          <a class="publication-thumb" href="https://arxiv.org/abs/2410.02595" target="_blank" rel="noreferrer" aria-label="Open paper website for publication 4">
+            <img
+              src="assets/images/System.png"
+              alt="Publication 4 thumbnail"
+            >
+          </a>
+          <div class="publication-meta">
+            <h3>Extremum Seeking Controlled Wiggling for Tactile Insertion</h3>
+            <p class="publication-authors">Levi Burner*, Pavan Mantripragada*, Gabriele M. Caddeo*, Lorenzo Natale, Cornelia Fermüller, Yiannis Aloimonos</p>
+            <p>
+              When humans perform complex insertion tasks such as pushing a cup into a cupboard, routing a cable, or putting a key
+              in a lock, they wiggle the object and adapt the process through tactile feedback. We study an extremum seeking control
+              law that wiggles end effector pose to maximize insertion depth while minimizing strain measured by a GelSight Mini
+              sensor. Across key insertion and assembly tasks, the method significantly outperforms a CMA-ES baseline and achieves
+              strong vision-initialized performance without contact modeling or learning.
+            </p>
+            <a href="https://arxiv.org/abs/2410.02595" target="_blank" rel="noreferrer">Read paper</a>
+          </div>
+        </article>
+
+        <article class="publication-card">
+          <a class="publication-thumb" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10611667" target="_blank" rel="noreferrer" aria-label="Open paper website for publication 5">
+            <img
+              src="assets/images/overview.png"
+              alt="Publication 5 thumbnail"
+            >
+          </a>
+          <div class="publication-meta">
+            <h3>AcTExplore: Active Tactile Exploration on Unknown Objects</h3>
+            <p class="publication-authors">Amir-Hossein Shahidzadeh, Seong Jong Yoo, Pavan Mantripragada, Chahat Deep Singh, Cornelia Fermüller, Yiannis Aloimonos</p>
+            <p>
+              Tactile exploration plays a crucial role in understanding object structures for robotics tasks such as grasping and
+              manipulation, but efficiently exploring unknown objects with limited sensing coverage is challenging. AcTExplore is
+              an active tactile exploration method driven by reinforcement learning that incrementally collects tactile data and
+              reconstructs 3D object shapes in a limited number of steps. The method achieves an average of 95.97% IoU coverage
+              on unseen YCB objects while being trained only on primitive shapes.
+            </p>
+            <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10611667" target="_blank" rel="noreferrer">Read paper</a>
+          </div>
+        </article>
+
+        <article class="publication-card">
+          <a class="publication-thumb" href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2022.898075/full" target="_blank" rel="noreferrer" aria-label="Open paper website for publication 6">
+            <img
+              src="assets/images/diagonal_b2t_moving_events3D.jpg"
+              alt="Publication 6 thumbnail"
+            >
+          </a>
+          <div class="publication-meta">
+            <h3>GradTac: Spatio-Temporal Gradient Based Tactile Sensing</h3>
+            <p class="publication-authors">Kanishka Ganguly, Pavan Mantripragada, Chethan M. Parameshwara, Cornelia Fermüller, Nitin J. Sanket, Yiannis Aloimonos</p>
+            <p>
+              GradTac introduces a spatio-temporal gradient representation for data from fluid-based tactile sensors, inspired by
+              neuromorphic event-based sensing. The method converts discrete tactile measurements into spatio-temporal surfaces and
+              tracks tactile contours across them, improving robustness to noise and enabling accurate tracking of touch regions.
+              It is evaluated on real-world experiments with the Shadow Dexterous Hand and BioTac SP sensors across tasks including
+              force estimation, slip detection, and edge tracking.
+            </p>
+            <a href="https://www.frontiersin.org/journals/robotics-and-ai/articles/10.3389/frobt.2022.898075/full" target="_blank" rel="noreferrer">Read paper</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="reviewer">
+      <div class="section-heading">
+        <h2>Reviewer</h2>
+      </div>
+
+      <div class="text-card-grid">
+        <article class="text-card">
+          <ul>
+            <li>ICRA</li>
+            <li>IROS</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="section-heading">
+        <h2>Teaching</h2>
+      </div>
+
+      <div class="text-card-grid">
+        <article class="text-card">
+          <ul>
+            <li>CMSC320 - Introduction to Data Science</li>
+            <li>CMSC216 - Introduction to Computer Systems</li>
+            <li>ENPM662 - Introduction to Robot Modeling</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+  </main>
+</body>
 </html>
